@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Affection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Oxanium:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #0a0a0a;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Oxanium', sans-serif;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 20, 147, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 20, 147, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+        }
+
+        .cyber-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff1493;
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .neon-img {
+            width: 300px;
+            border: 3px solid #ff1493;
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+            margin: 20px 0;
+            transition: transform 0.3s;
+            border-radius: 5px;
+        }
+
+        #cyberButton {
+            background: none;
+            border: 2px solid #ff1493;
+            color: #ff1493;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        #cyberButton:hover {
+            background: rgba(255, 20, 147, 0.2);
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.4);
+        }
+
+        .cyber-heart {
+            color: #ff1493;
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <div class="cyber-content">
+        <h1>YAYYYY !! <span class="cyber-heart">♥</span><br>SPOIL MEEE <span class="neon-text">Daddyyy xoxo 🫦</span></h1>
+        <img src="https://i.postimg.cc/ydj8MGT3/bear-kiss-bear-kisses.gif" 
+             alt="Neon Affection" 
+             class="neon-img">
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        new Vue({
+            el: ".cyber-content",
+            methods: {
+                yesButton() {
+                    window.location.href = "yes.html";
+                },
+            },
+        });
+
+        // Add random glitch effects to text
+        const glitchText = document.querySelector('h1');
+        setInterval(() => {
+            glitchText.style.textShadow = `
+                ${Math.random() * 5 - 2}px ${Math.random() * 5 - 2}px 15px rgba(255,20,147,0.7),
+                ${Math.random() * 5 - 2}px ${Math.random() * 5 - 2}px 15px rgba(0,255,255,0.7)
+            `;
+            setTimeout(() => {
+                glitchText.style.textShadow = '0 0 15px rgba(255,20,147,0.7)';
+            }, 50);
+        }, 2000);
+    </script>
+</body>
+</html>
